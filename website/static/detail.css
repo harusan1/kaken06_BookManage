@@ -1,0 +1,39 @@
+.bplace{
+    display: flex;
+    text-align: center;
+    justify-content: space-around;
+    padding: 50px;
+}
+
+
+.a {
+    text-align:left;
+}
+
+p{
+    padding-top: 15px;
+    text-align: right;
+    white-space: nowrap;
+}
+
+td{
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+
+@media screen and (min-width: 768px) {
+    table{
+        background-color: #e0ffff;
+        margin:auto;
+        width:500px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    table{
+        background-color: #e0ffff;
+        margin:auto; 
+        width:350px;
+    }
+}

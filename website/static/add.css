@@ -1,0 +1,52 @@
+
+#button1 {
+  width: 10em;
+  height:3em;
+  display: block;
+  margin: auto;
+}
+
+.drawingBuffer{
+        width: 0px !important;
+    }
+
+    
+    
+@media screen and (min-width: 768px) {
+    #app {
+        width:50%;
+        display: block;
+        margin: auto;
+    }
+
+    #app > video, #app > canvas {
+        width: 100%;
+    }
+
+    #app > canvas {
+        position: absolute;
+        left: 0px; top: 0px;
+    }
+}
+ 
+@media screen and (max-width: 768px) {
+    #app {
+        width: 100%;
+    }
+    #app > video, #app > canvas {
+        width: 100%;
+    }
+    #app > canvas {
+        position: absolute;
+        left: 0px; top: 0px;
+    }    
+}
+
+
+
+
+
+
+
+
+

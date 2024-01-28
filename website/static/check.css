@@ -1,0 +1,51 @@
+.text1{
+    text-align:center;
+    margin: 10px;
+}
+
+.bplace{
+    text-align:center;
+    padding: 10px;
+}
+
+
+.a {
+    text-align:right;
+    white-space: nowrap;
+
+}
+
+td{
+    padding-bottom: 10px;
+}
+
+li{
+    padding-left: 20px;
+}
+
+
+@media screen and (min-width: 768px) {
+    .pc { display:block; }
+    .sp { display:none; }
+}
+@media screen and (max-width : 768px) {
+    .pc { display:none; }
+    .sp { display:block; }
+}
+
+
+@media screen and (min-width: 768px) {
+    table{
+        background-color: #e0ffff;
+        margin:auto;
+        width:500px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    table{
+        background-color: #e0ffff;
+        margin:auto; 
+        width:350px;
+    }
+}

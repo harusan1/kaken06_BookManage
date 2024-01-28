@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+{% load static %}
+{% block head %}
+<title>書籍一覧</title>
+<link rel ="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+<link rel="stylesheet" href="{% static 'booklist.css' %}">
+{% endblock %}
+
+{% block main %}
+
+<h1>書籍一覧</h1>
+
+{% if Books %}
+<div class="fplace">
+<form action="" method="GET">
+    
+    <select name="sort" id="change">
+        <option value="">登録順(昇順)</option>
+        <option value="old">登録順(降順)</option>
+        <option value="astart">五十音順(昇順)</option>
+        <option value="aend">五十音順(降順)</option>
+    </select>
+    
+    <input type="submit" value="変更">
+</form>
+</div>
+
+<br>
+
+<div class="button">
+    <button id="return" onclick="location.href='{% url 'index' %}'">戻る</button>
+</div>
+
+<table border=1>
+    <thead>
+        <tr>
+            <th class="a">詳細</th>
+            <th class="a">表紙</th>
+            <th class="a">書籍名</th>
+        </tr>
+    </thead>
+{% for BookList in Books %}
+    <tbody>
+        <tr>
+            <td class="text1"><a href="detail/{{ BookList.book_isbn }}/">編集</a></td>
+            <td><img src="https://iss.ndl.go.jp/thumbnail/{{ BookList.book_isbn }}" onerror="this.src='{% static 'images/noimage.png' %}';" /></td>
+            <td>{{ BookList.book_title }}</td>
+        </tr>
+    </tbody>
+    
+{% endfor %}
+</table>
+
+<a id="top" href="#"></a>
+<script>
+  document.getElementById("top").addEventListener("click", function () {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+    });
+  });
+</script>
+
+<div class="bplace">
+<ul class="pagination">
+    {% comment %} 前へ {% endcomment %}
+    {% if page_obj.has_previous %}
+        <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}">前へ</a></li>
+    {% endif %}
+
+    {% comment %} 間のページ {% endcomment %}
+    {% for i in page_obj.paginator.page_range %}
+        {% if page_obj.number == i %}
+          <li class="page-item active"><a class="page-link">{{ i }}</a></li>
+        {% else %}
+          <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+        {% endif %}
+    {% endfor %}
+
+    {% comment %} 次へ {% endcomment %}
+    {% if page_obj.has_next %}
+        <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">次へ</a></li>
+    {% endif %}
+</ul>
+</div>
+
+{% else %}
+<h4>コンテンツはまだありません。</h4>
+
+{% endif %}
+
+{% endblock %}

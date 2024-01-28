@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block head %}
+<title>追加完了</title>
+<link rel="stylesheet" href="{% static 'check.css' %}">
+{% endblock %}
+
+{% block main %}
+<div class="pc">
+    <h1>書籍の追加が完了しました。</h1>
+</div>
+
+<div class="sp">
+    <h4>書籍の追加が完了しました。</h4>
+</div>
+
+{% for error in error_list %}
+    <li>{{ error }}</li>
+{% endfor %}
+
+
+{% endblock %}

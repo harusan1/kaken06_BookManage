@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'detail.css' %}">
+{% endblock %}
+
+{% block main %}
+<table>
+<tbody>
+        <tr class="a">
+            <td><p>表紙：</p></td>
+            <td><img src="https://iss.ndl.go.jp/thumbnail/{{ Books.book_isbn }}" onerror="this.src='{% static 'images/noimage.png' %}';" /></td>
+        </tr>
+        <tr class="a">
+            <td><p>書籍名：</p></td>
+            <td>{{ Books.book_title }}</td>
+        </tr>
+        <tr class="a">
+            <td><p>著者：</p></td>
+            <td>{{ Books.book_creator }}</td>
+        </tr>
+        <tr class="a">
+            <td><p>出版社：</p></td>
+            <td>{{ Books.book_publisher }}</td>
+        </tr>
+        <tr class="a">
+            <td><p>ISBNコード：</p></td>
+            <td>{{ Books.book_isbn }}</td>
+        </tr>
+</tbody>
+</table>
+
+<form method="post" [編集済]>
+{% csrf_token %}
+    <div class="bplace">
+        <button type="submit" class="btn btn-outline-danger btn-lg">削除する</button>
+    </div>
+</form>
+
+
+{% endblock %}

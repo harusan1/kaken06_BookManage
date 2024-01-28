@@ -1,0 +1,12 @@
+.basehead {
+    height: 100%;
+    width: 100%;
+}
+.basebody {
+    min-height: 100%;
+    background-color: #edf0f3;
+}
+
+.navbar{
+    max-width: 100%;
+}

@@ -1,0 +1,4 @@
+requests
+dj-database-url
+python-dotenv
+django-ses

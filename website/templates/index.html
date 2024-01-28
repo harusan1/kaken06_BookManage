@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block head %}
+    <title>トップページ</title>
+{% endblock %}
+
+{% block main %}
+    <div class="d-flex flex-column bd-highlight mt-3">
+        <div class="p-3 bd-highlight">
+            <button type="button" onclick="location.href='{% url 'add' %}'" class="btn btn-outline-primary btn-block btn-lg">書籍登録</button>
+        </div>
+            
+        <div class="p-3 bd-highlight">
+            <button type="button" onclick="location.href='{% url 'booklist' %}'" class="btn btn-outline-primary btn-block btn-lg">書籍一覧</button>
+        </div>
+            
+        <div class="p-3 bd-highlight">
+            <button type="button" onclick="location.href='{% url 'lend' %}'" class="btn btn-outline-dark btn-block btn-lg">貸出管理(準備中)</button>
+        </div>
+            
+        <div class="p-3 bd-highlight">
+            <button type="button" onclick="location.href='{% url 'options' %}'" class="btn btn-outline-info btn-block btn-lg">設定</button>
+        </div>
+            
+    </div>
+{% endblock %}
+
+{% block button %}
+{% endblock %}

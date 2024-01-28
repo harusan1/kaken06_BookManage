@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block head %}
+{% endblock %}
+
+{% block main %}
+<h1>CSVバックアップ</h1>
+
+<p>CSVアップロード</p>
+<form action="{% url 'csvimport' %}" method='POST' enctype="multipart/form-data">
+{% csrf_token %}
+    <p>
+        <input type="file" name="csv">
+        <button type="submit">送信</button>
+    </p>
+</form>
+
+<p><a href="{% url 'csvexport' %}">CSVダウンロード</a></p>
+
+{% endblock %}

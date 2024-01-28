@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% load static humanize %}
+
+{% block head %}
+    <title>確認画面</title>
+    <link rel="stylesheet" href="{% static 'check.css' %}">
+{% endblock %}
+
+{% block main %}
+<div class="pc">
+    <h1 class="text1">この本で間違いないですか？</h1>
+</div>
+
+<div class="sp">
+    <h3 class="text1">この本で間違いないですか？</h3>
+</div>
+
+<table>
+    <tbody>
+        <tr>
+            <td class="a">表紙：</td>
+            <td><img src="https://iss.ndl.go.jp/thumbnail/{{ isbn }}" onerror="this.src='{% static 'images/noimage.png' %}';" /></td>
+        </tr>
+        
+        <tr>
+            <td class="a">書籍名：</td>
+            <td>{{ title }}</td>
+        </tr>
+        
+        <tr>
+            <td class="a">著者：</td>
+            <td>{{ creator }}</td>
+        </tr>
+        <tr>
+            <td class="a">出版社：</td>
+            <td>{{ publisher }}</td>
+        </tr>
+        
+        <tr>
+            <td class="a">バーコード：</td>
+            <td>{{ isbn }}</td>
+        </tr>
+        
+    </tbody>
+</table>
+
+<br><br>
+
+
+
+<form method="POST" [編集済] id="[編集済]">
+    {% csrf_token %}
+    <input type="hidden" id="gisbn" name="gisbn" value="{{ isbn }}">
+    <input type="hidden" id="gtitle" name="gtitle" value="{{ title }}">
+    <input type="hidden" id="gcreator" name="gcreator" value="{{ creator }}">
+    <input type="hidden" id="gpublisher" name="gpublisher" value="{{ publisher }}">
+
+    <div class="bplace">
+    <button type="submit" formaction="addcomp" class="btn-lg mx-4 p-2">書籍追加</button>
+    <button type="button" name="cancel" onclick="location.href='{% url 'add' %}'" class="btn-lg mx-4 p-2">キャンセル</button>
+    </div>
+</form>
+
+{% endblock %}
+
+{% block button %}
+{% endblock %}

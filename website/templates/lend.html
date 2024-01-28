@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block head %}
+<title>貸出管理</title>
+{% endblock %}
+
+{% block main %}
+<h1>貸出管理</h1>
+
+<div class="p-3 bd-highlight">
+    <button type="button" onclick="location.href='{% url 'index' %}'" class="btn btn-outline-primary btn-block btn-lg">管理</button>
+</div>
+
+<div class="p-3 bd-highlight">
+    <button type="button" onclick="location.href='{% url 'friend' %}'" class="btn btn-outline-primary btn-block btn-lg">本友リスト</button>
+</div>
+{% endblock %}

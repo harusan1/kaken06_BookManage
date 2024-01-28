@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load static %}
+{% block head %}
+    <title>書籍登録</title>
+    <link rel="stylesheet" href="{% static 'add.css' %}">
+    <script src="https://unpkg.com/vue@next"></script>
+    <!-- <script src="./quagga.min.js"></script> -->
+    <script src="https://unpkg.com/quagga@0.12.1/dist/quagga.min.js"></script>
+{% endblock %}
+
+{% block main %}
+<br>
+<script src="{% static 'camera.js' %}" async></script>
+
+<form id="gcode" action="{% url 'getcode' %}" method="post">
+    {% csrf_token %}
+    <input type="hidden" id="cdata" name="cdata" value="{{ isbn }}">
+    <div id="app"></div>
+</form>
+{% endblock %}

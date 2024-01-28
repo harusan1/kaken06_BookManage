@@ -1,0 +1,35 @@
+.button #return {
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0 auto;
+    max-width: 70px;
+    padding: 8px 20px;
+    color: #FFF;
+    transition: 0.3s ease-in-out;
+    font-weight: 600;
+    background: #6bb6ff;
+    filter: drop-shadow(0px 2px 4px #ccc);
+    border-radius: 3px;
+    border-radius: 50px;
+}
+
+.button #return:after {
+    content: '';
+    width: 5px;
+    height: 5px;
+    border-top: 3px solid #FFF;
+    border-right: 3px solid #FFF;
+    transform: rotate(45deg) translateY(-50%);
+    position: absolute;
+    top: 46%;
+    right: 20px;
+    border-radius: 1px;
+    transition: 0.3s ease-in-out;
+}
+
+.button #return:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 30px -5px rgb(0 0 0 / 15%), 0 0 5px rgb(0 0 0 / 10%);
+}

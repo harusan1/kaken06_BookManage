@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block head %}
+{% endblock %}
+
+{% block main %}
+
+<h1>ユーザー情報</h1>
+<table>
+    
+<tr>
+    <td>ユーザー名:</td>
+    <td>{{ user.username }}</td>
+</tr>
+
+<tr>
+    <td>メールアドレス:</td>
+    <td>{{ user }}</td>
+</tr>
+
+</table>
+{% endblock %}
